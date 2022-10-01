@@ -1,13 +1,13 @@
 package conectar
 
 class Usuario {
-    String nombre
-    String apellido
+    String name
     String email
+    String password
 
     static constraints = {
-        nombre blank: false, nullable: false
-        apellido blank: false, nullable: false
+        name blank: false, nullable: false
         email email: true, nullable: false, blank: false
+        password blank: false, nullable: false
     }
 }

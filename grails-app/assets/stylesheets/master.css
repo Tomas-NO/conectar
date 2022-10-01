@@ -1,0 +1,38 @@
+/*
+    COLOR PRINCIPAL: #FE9630
+    COLOR COMPLEMENTARIO: #3098FE 
+*/
+
+/* HEADER */
+
+nav {
+    position: fixed !important;
+    width: 100%;
+}
+
+#content {
+    margin-top: 100px;
+}
+
+.navbar {
+    background-color: #FE9630;
+    height: 100px;
+}
+.navbar-brand {
+    width: 80px;
+}
+.logo {
+    height: 80px;
+    transition: all .5s ease-out;
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+.navbar-link {
+    color: white !important;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+}
+.navbar-link:hover {
+    border: 1px solid white;
+}
