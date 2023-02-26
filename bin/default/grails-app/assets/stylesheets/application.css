@@ -1,0 +1,300 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require bootstrap
+*= require grails
+*= require main
+*= require mobile
+*= require_self
+*/
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    /* user-select: none; */
+}
+
+.content-container {
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    min-height: 302px;
+}
+
+.hidden {
+    display: none!important;
+}
+
+/*
+    COLOR PRINCIPAL: #FE9630
+    COLOR COMPLEMENTARIO: #3098FE 
+*/
+
+/* HEADER */
+
+nav {
+    z-index: 1;
+    position: fixed !important;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #FE9630;
+    height: 5rem;
+}
+
+.logo {
+    height: 3rem;
+    transition: all .5s ease-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar-link {
+    color: white !important;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+    background-color: transparent!important;
+}
+
+.navbar-link:hover {
+    border: 1px solid white;
+}
+
+/* CONTENT */
+
+.padded {
+    padding: 0 20%;
+}
+
+label {
+    font-weight: bold;
+}
+
+form {
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.form-field {
+    width: 100%;
+    padding: 6px 10px!important;
+    margin: 8px 0!important;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-field:focus {
+    border: 1px solid #555;
+}
+
+.post-creation-number {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    font-size: 20px;
+    width: 100%;
+    background-color: #FE9630;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all .3s;
+}
+
+.button:hover {
+    border: 2px solid black;
+    opacity: 0.9;
+}
+
+/* FORUM */
+
+.forum-container {
+    padding: 4rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.post {
+    width: 85%;
+    margin-bottom: 4rem;
+    border: 1px solid black;
+    padding: 1rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    border-radius: 25px;
+    height: 21rem;
+    position: relative;
+    transition: all .3s;
+    align-items: center;
+    display: flex;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.post:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.75);
+}
+
+.post:hover .post-image {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.75);
+}
+
+.post-image {
+    width: 15rem;
+    flex-shrink: 0;
+    height: 15rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    border-radius: 20px;
+    transform: translateX(-80px);
+    transition: all .3s;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    transition: all .3s;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-header p {
+    font-weight: bold;
+    margin-right: 2rem;
+    font-size: 3rem;
+}
+
+.post-information {
+    height: 100%;
+    width: 100%;
+}
+
+.post-date {
+    color: #7b7992;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: 500;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d0925;
+}
+
+.post-content {
+    height: 70px;
+    color: #4e4a67;
+    line-height: 1.5em;
+    overflow: auto;
+    padding-right: 1rem;
+}
+
+.post-budget {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0d0925;
+    margin-bottom: 1rem;
+}
+
+.post-icons {
+    display: flex;
+}
+
+.post-icons-item {
+    flex: 50%;
+}
+
+.post-icons-item img {
+    width: 2rem;
+    margin-right: 5px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.post-offer-button {
+    background-color: white;
+    border-radius: 25px;
+    transition: all .3s;
+}
+
+.post-offer-button:hover {
+    background-color: #ccc;
+}
+
+.post-author {
+    text-align: right;
+    font-style: italic;
+}
+
+.alone {
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.offer-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    overflow-y: scroll;
+}
+
+.form-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 40rem;
+}
+
+.close-form {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+}
