@@ -15,6 +15,8 @@ class UrlMappings {
         "/profile" (controller: "user", action: "info")
         "/edit" (controller: "user", action: "edit")
         "/forum" (controller: "post", action: "show")
+        "/offers" (controller: "offer", action: "showIndividual")
+        "/post-offers" (controller: "offer", action: "showWithPosts")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

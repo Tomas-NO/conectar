@@ -10,31 +10,36 @@ class Post {
     Integer acceptedDesigners = 0
     Date createdDate
     static hasMany = [offers: Offer]
-    List<Offer> acceptedOffers = []
     static belongsTo = [author: User]
 
     static constraints = {
         title blank: false, maxSize: 100
         content blank: false, maxSize: 1000
-        author nullable: false
         budget min: 0 
         numberDevelopers min:0
         numberDesigners min:0
         offers nullable: true
-        acceptedOffers nullable: true 
+        author nullable: false
     }
 
     static mapping = {
         offers cascade: 'all-delete-orphan'
+        sort id: "desc"
     }
 
-    void acceptOffer(Offer offer) {
-        acceptedOffers.add(offer)
-        if(offer.author.role = 'Developer') {
-            acceptedDevelopers++
-        } else {
-            acceptedDesigners++
+    Boolean isFull() {
+        return (this.numberDevelopers == this.acceptedDevelopers && this.numberDesigners == this.acceptedDesigners)
+    }
+
+    Boolean isFullRole(User user) {
+        String roleString = user.role.name
+        switch(roleString) {
+            case "Developer":
+                return this.numberDevelopers == this.acceptedDevelopers
+                break
+            case "Designer":
+                return this.numberDesigners == this.acceptedDesigners
+                break
         }
     }
-
 }

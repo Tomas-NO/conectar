@@ -5,20 +5,21 @@ class UserController {
     def signUp() { }
 
     def save() { 
-        def user = new User(params)
-
-        if(!user.hasErrors()) {
-            def duplicate = User.findByUsername(params.username)
-            if(duplicate) {
-                flash.message = "Username already taken"
-                redirect(action: "signUp")
+        User.withTransaction {
+            def user = new User(params)
+            if(!user.hasErrors()) {
+                def duplicate = User.findByUsername(params.username)
+                if(duplicate) {
+                    flash.message = "Username already taken"
+                    redirect(action: "signUp")
+                } else {
+                    user.save(flush: true)
+                    redirect(action: "signIn")
+                }
             } else {
-                user.save()
-                redirect(action: "signIn")
+                flash.message = "Error creating new User"
+                render(view: "signUp")
             }
-        } else {
-            flash.message = "Error creating new User"
-            render(view: "signUp")
         }
     }
 
@@ -47,19 +48,27 @@ class UserController {
 
     def edit() {
         User.withTransaction {
-            def user = User.get(session.user.id)
-            user.username = params.username
-            user.email = params.email
-            user.password = params.password
-            user.firstName = params.firstName
-            user.lastName = params.lastName
-            user.country = params.country
-            user.age = params.int("age")
-            if(!user.hasErrors()) {
-                user.save(flush: true)
-                session.user = user
+            def duplicate = null;
+            if(session.user.username != params.username) {
+                duplicate = User.findByUsername(params.username)
+            }
+            if(duplicate) {
+                flash.message = "Username already taken"
             } else {
-                flash.message = "Error editing your profile information"
+                def user = User.get(session.user.id)
+                user.username = params.username
+                user.email = params.email
+                user.password = params.password
+                user.firstName = params.firstName
+                user.lastName = params.lastName
+                user.country = params.country
+                user.age = params.int("age")
+                if(!user.hasErrors()) {
+                    user.save(flush: true)
+                    session.user = user
+                } else {
+                    flash.message = "Error editing your profile information"
+                }
             }
         }
         redirect(action: "info")

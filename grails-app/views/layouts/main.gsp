@@ -50,7 +50,15 @@
                                         <g:link controller="user" action="info" class="navbar-link">Make a Post</g:link>
                                     </li>
                                 </g:else>
+                                <li>
+                                    <g:link controller="offer" action="showWithPosts" class="navbar-link">Offers</g:link>
+                                </li>
                             </g:if>
+                            <g:else>
+                               <li>
+                                    <g:link controller="offer" action="showIndividual" class="navbar-link">Offers</g:link>
+                                </li>
+                            </g:else>
                             <li>
                                 <g:link controller="user" action="info" class="navbar-link">Profile</g:link>
                             </li>

@@ -258,11 +258,21 @@ form {
 .post-author {
     text-align: right;
     font-style: italic;
+    margin-right: 1rem;
+    margin-top: 1rem;
 }
 
 .alone {
-    margin-right: 1rem;
-    margin-top: 1rem;
+    width: 100%;
+}
+
+.post-delete {
+    background-color: white;
+    border-radius: 25px;
+    transition: all .3s;
+    padding: .3rem 1rem;
+    border: 2px solid red;
+    color: red;
 }
 
 .offer-form {
@@ -291,6 +301,59 @@ form {
     float: right;
     font-size: 22px;
     cursor: pointer;
+}
+
+/* OFFERS */
+
+.show-offers-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+}
+
+.post-offers-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-bottom: 4rem;
+    border-radius: .5rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.post-offers-title {
+    padding-bottom: .3rem;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.offers-container {
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.offer {
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+    width: 30%;
+    background-color: #FE9630;
+    border-radius: .5rem;
+}
+
+.offer-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.offer-buttons a {
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: white;
+    padding: .2rem 1rem;
+    font-weight: bold;
+    color: black;
 }
 
 /* FOOTER */

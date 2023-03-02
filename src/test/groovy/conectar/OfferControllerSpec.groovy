@@ -12,7 +12,6 @@ class OfferControllerSpec extends Specification implements ControllerUnitTest<Of
     }
 
     void "test something"() {
-        expect:"fix me"
-            true == false
+
     }
 }

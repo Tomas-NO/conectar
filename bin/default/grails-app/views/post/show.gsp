@@ -21,6 +21,9 @@
     <body>
         <div class="forum-container">
             <g:each in="${posts}" var="post">
+                <%
+                    System.out.println post.properties
+                %>
                 <div class="post" id="${post.id}">
                     <div class="post-image">
                         <asset:image src="profilePicture.jpg" alt="Profile Picture"/>
@@ -35,40 +38,52 @@
                         <p class="post-budget">$${post.budget}</p>
                         <div class="post-icons">
                             <div class="post-icons-item">
-                                <g:each var="i" in="${ (1..post.numberDevelopers) }">   
-                                    <g:if test="${post.acceptedDevelopers - i >= 0}">
-                                       <asset:image src="developerFull.png" alt="Developer Icon"/>
-                                    </g:if>                 
-                                    <g:else>
-                                       <asset:image src="developerFree.png" alt="Developer Icon"/>
-                                    </g:else>                
-                                </g:each>
+                                <g:if test="${ post.numberDevelopers > 0 }">
+                                    <g:each var="i" in="${ (1..post.numberDevelopers) }">   
+                                        <g:if test="${post.acceptedDevelopers - i >= 0}">
+                                        <asset:image src="developerFull.png" alt="Developer Icon"/>
+                                        </g:if>                 
+                                        <g:else>
+                                        <asset:image src="developerFree.png" alt="Developer Icon"/>
+                                        </g:else>                
+                                    </g:each>
+                                </g:if>
                             </div>
                             <div class="post-icons-item">
-                                <g:each var="i" in="${ (1..post.numberDesigners) }">
-                                    <g:if test="${post.acceptedDesigners - i >= 0}">
-                                       <asset:image src="designerFull.png" alt="Designer Icon"/>
-                                    </g:if>                 
-                                    <g:else>
-                                       <asset:image src="designerFree.png" alt="Designer Icon"/>
-                                    </g:else>  
-                                </g:each>
+                                <g:if test="${ post.numberDesigners > 0 }">
+                                    <g:each var="i" in="${ (1..post.numberDesigners) }">
+                                        <g:if test="${post.acceptedDesigners - i >= 0}">
+                                        <asset:image src="designerFull.png" alt="Designer Icon"/>
+                                        </g:if>                 
+                                        <g:else>
+                                        <asset:image src="designerFree.png" alt="Designer Icon"/>
+                                        </g:else>  
+                                    </g:each>
+                                </g:if>
                             </div>                            
                         </div>
-                        <g:if test="${session.user.role.name != "Contractor"}">
-                            <div class="post-footer">   
-                                <g:if test="${session.user.hasCompletedInformation()}">
+                        <div class="post-footer">   
+                            <g:if test="${session.user.role.name != "Contractor"}">
+                                <g:if test="${session.user.hasCompletedInformation() && !post.isFullRole(session.user)}">
                                     <button class="post-offer-button">Create Offer</button>
                                 </g:if>
                                 <g:else>
                                     <button class="post-offer-button" disabled>Create Offer</button>
                                 </g:else>
                                 <p class="post-author">Created by: ${post.author.username}</p>
-                            </div>    
-                        </g:if>
-                        <g:else>
-                            <p class="post-author alone">Created by: ${post.author.username}</p>
-                        </g:else>
+                            </g:if>
+                            <g:else>
+                                <g:if test="${post.author.username == session.user.username}">
+                                    <g:link class="post-delete" controller="post" action="delete" params="[postId: post.id]">
+                                        Delete Post 
+                                    </g:link>
+                                    <p class="post-author">Created by: ${post.author.username}</p>
+                                </g:if>
+                                <g:else>
+                                    <p class="post-author alone">Created by: ${post.author.username}</p>
+                                </g:else>
+                            </g:else>
+                        </div>    
                     </div>
                 </div>
             </g:each>

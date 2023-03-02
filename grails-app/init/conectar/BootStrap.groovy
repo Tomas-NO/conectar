@@ -63,35 +63,35 @@ class BootStrap {
                                     numberDevelopers: 1, 
                                     numberDesigners: 1, 
                                     createdDate: new Date()).save()
-            Offer offer1 = new Offer(comment: "test offer 1", 
-                                    budget: 100, 
-                                    author: developerUser)
-            Offer offer2 = new Offer(comment: "test offer 2", 
-                                    budget: 200, 
-                                    author: designerUser)
-            Offer offer3 = new Offer(comment: "test offer 3", 
-                                    budget: 300, 
-                                    author: developerUser)
             Offer offer4 = new Offer(comment: "test offer 4", 
                                     budget: 400, 
                                     author: developerUser)
             Offer offer5 = new Offer(comment: "test offer 5", 
                                     budget: 500, 
-                                    author: developerUser)
+                                    author: designerUser)
             Offer offer6 = new Offer(comment: "test offer 6", 
                                     budget: 600, 
                                     author: developerUser)
             Offer offer7 = new Offer(comment: "test offer 7", 
                                     budget: 700, 
                                     author: developerUser)
+            Offer offer8 = new Offer(comment: "test offer 8", 
+                                    budget: 800, 
+                                    author: developerUser)
+            Offer offer9 = new Offer(comment: "test offer 9", 
+                                    budget: 900, 
+                                    author: developerUser)
+            Offer offer10 = new Offer(comment: "test offer 10", 
+                                    budget: 1000, 
+                                    author: developerUser)
                
-            post2.addToOffers(offer1)
-            post2.addToOffers(offer2)                                            
-            post2.addToOffers(offer3) 
-            post2.addToOffers(offer4) 
-            post2.addToOffers(offer5) 
+            post2.addToOffers(offer4)
+            post2.addToOffers(offer5)                                            
             post2.addToOffers(offer6) 
             post2.addToOffers(offer7) 
+            post2.addToOffers(offer8) 
+            post2.addToOffers(offer9) 
+            post2.addToOffers(offer10) 
 
             post2.save(flush: true)
         }
@@ -104,10 +104,10 @@ class BootStrap {
                                     numberDevelopers: 10, 
                                     numberDesigners: 10, 
                                     createdDate: new Date())
-            Offer offer1 = new Offer(comment: "test offer 1", 
-                                    budget: 100, 
+            Offer offer11 = new Offer(comment: "test offer 11", 
+                                    budget: 1100, 
                                     author: developerUser)
-            post3.addToOffers(offer1)
+            post3.addToOffers(offer11)
             post3.save(flush: true)
         }
     }
